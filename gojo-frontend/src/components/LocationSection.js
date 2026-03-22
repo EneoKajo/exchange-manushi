@@ -1,15 +1,17 @@
 import "../styles/LocationSection.css";
 import office from '../images/office.PNG'
+import { useLanguage } from "../context/LanguageContext";
 
 function LocationSection() {
+  const { t } = useLanguage();
   return (
     <div className="location-section">
       <div className="location-left">
-        <h2>Find Us</h2>
+        <h2>{t.findUs}</h2>
         <div className="location-details">
           <p className="location-address">
-            📍 Blv. Zogu I, Te Sigal, K. I<br />
-            1000 — Tiranë, Albania
+            📍 {t.address}<br />
+            {t.city}
           </p>
           <p className="location-contact">📞 0682036278</p>
           <p className="location-contact">✉️ exchangemanushi@yahoo.com</p>

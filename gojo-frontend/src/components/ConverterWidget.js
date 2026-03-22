@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
 import "../styles/ConverterWidget.css"
+import { useLanguage } from "../context/LanguageContext"
 
 
 function ConverterWidget() {
+    const { t } = useLanguage()
 
     const [amount, setAmount] = useState(1)
     const [fromCurrency, setFromCurrency] = useState("LEK");
@@ -33,11 +35,11 @@ function ConverterWidget() {
 
     return (
         <div className='converter-widget'>
-            <h1>MANUSHI Sh.P.K</h1>
-            <p className="hero-subtitle">Currency Exchange - Tirana</p>
+            <h1>{t.title}</h1>
+            <p className="hero-subtitle">{t.subtitle}</p>
             <div className="converter-row">
                 <div className="converter-side">
-                    <label>From</label>
+                    <label>{t.from}</label>
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value === "" ? "" : e.target.value)} placeholder="1" min="1" />
                     <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
                         {CURRENCIES.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -47,7 +49,7 @@ function ConverterWidget() {
                 <button className="swap-btn" onClick={handleSwap}>⇄</button>
 
                 <div className="converter-side">
-                    <label>To</label>
+                    <label>{t.to}</label>
                     <input type="text" value={result ?? "—"} readOnly />
                     <select value={toCurrency} onChange={(e) => setToCurrency(e.target.value)}>
                         {CURRENCIES.map((c) => <option key={c} value={c}>{c}</option>)}
