@@ -37,7 +37,7 @@ function ConverterWidget() {
             <div className="converter-row">
                 <div className="converter-side">
                     <label>From</label>
-                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value || 1)} min="1" />
                     <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
                         {CURRENCIES.map((c) => <option key={c} value={c}>{c}</option>)}
                     </select>
