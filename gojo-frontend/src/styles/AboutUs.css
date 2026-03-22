@@ -1,0 +1,75 @@
+.about-section {
+  background-color: #F5C400;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #111;
+  margin-bottom: 1.25rem;
+}
+
+.about-text {
+  font-size: 1rem;
+  color: #111;
+  max-width: 600px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.about-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  min-width: 140px;
+}
+
+.about-card span {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #F5C400;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.about-card p {
+  font-size: 0.85rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 3rem 1.25rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-cards {
+    gap: 1rem;
+  }
+
+  .about-card {
+    min-width: 120px;
+    padding: 1.5rem;
+  }
+
+  .about-card span {
+    font-size: 2rem;
+  }
+}
