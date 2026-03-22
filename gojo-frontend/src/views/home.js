@@ -1,4 +1,3 @@
-import react from "react";
 import ConverterWidget from "../components/ConverterWidget";
 import LocationSection from "../components/LocationSection";
 import AboutUs from "../components/AboutUs";

@@ -15,9 +15,10 @@ function ConverterWidget() {
         setResult(data.result)
     }
 
-    useEffect(()=>{
-        convert()
-    }, [amount, fromCurrency, toCurrency]);
+    useEffect(() => {
+  convert();
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [amount, fromCurrency, toCurrency]);
 
     function handleSwap() {
         setFromCurrency(toCurrency);
