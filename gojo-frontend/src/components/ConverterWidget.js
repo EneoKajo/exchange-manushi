@@ -8,10 +8,12 @@ function ConverterWidget() {
     const [fromCurrency, setFromCurrency] = useState("LEK");
     const [result, setResult] = useState(null)
     const [toCurrency, setToCurrency] = useState("EUR")
+    const [rate, setRate] = useState(null)
 
     async function convert(){
         const res = await fetch(`https://eneokajo.pythonanywhere.com/convert?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
         const data = await res.json()
+        setRate(data.rate);
         setResult(data.result)
     }
 
@@ -52,9 +54,8 @@ function ConverterWidget() {
                 </div>
             </div>
             <p className="rate-display">
-                  {result ? `1 ${fromCurrency} = ${result} ${toCurrency}` : "—"}
-
-            </p>
+  {rate ? `1 ${fromCurrency} = ${rate} ${toCurrency}` : "—"}
+</p>
 
         </div>
     )
