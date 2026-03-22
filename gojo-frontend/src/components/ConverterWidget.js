@@ -11,6 +11,7 @@ function ConverterWidget() {
     const [rate, setRate] = useState(null)
 
     async function convert(){
+        if (!amount || amount === "") return;
         const res = await fetch(`https://eneokajo.pythonanywhere.com/convert?from=${fromCurrency}&to=${toCurrency}&amount=${amount}`);
         const data = await res.json()
         setRate(data.rate);
@@ -37,7 +38,7 @@ function ConverterWidget() {
             <div className="converter-row">
                 <div className="converter-side">
                     <label>From</label>
-                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value || 1)} min="1" />
+                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value === "" ? "" : e.target.value)} placeholder="1" min="1" />
                     <select value={fromCurrency} onChange={(e) => setFromCurrency(e.target.value)}>
                         {CURRENCIES.map((c) => <option key={c} value={c}>{c}</option>)}
                     </select>
